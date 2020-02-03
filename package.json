@@ -1,0 +1,49 @@
+{
+  "name": "@leo/hello-webassembly",
+  "version": "0.0.0",
+  "description": "example for web assembly",
+  "scripts": {
+    "start": "node lib/app",
+    "build": "tsc",
+    "test": "jest",
+    "asc": "asc",
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat -d build/index.d.ts --validate --sourceMap --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat -d build/index.d.ts --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leo721120/hello-webassembly.git"
+  },
+  "author": "leojan@alum.ccu.edu.tw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leo721120/hello-webassembly/issues"
+  },
+  "homepage": "https://github.com/leo721120/hello-webassembly#readme",
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.6",
+    "assemblyscript": "^0.9.1",
+    "jest": "^24.9.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  },
+  "jest": {
+    "browser": false,
+    "testMatch": [
+      "**/test/**/*.[j]s?(x)"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 60,
+        "statements": 50
+      }
+    }
+  }
+}
